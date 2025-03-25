@@ -79,7 +79,7 @@ Isso irá rodar os testes unitários e de integração usando **Vitest** e **Sup
 ### Criar uma Campanha
 
 ```http
-POST /
+POST {{CampanhaServiceUrl}}/campanha/
 ```
 
 #### Corpo da Requisição (JSON)
@@ -96,13 +96,13 @@ POST /
 ### Listar Campanhas
 
 ```http
-GET /
+GET {{CampanhaServiceUrl}}/campanha/
 ```
 
 ### Atualizar Campanha
 
 ```http
-PUT /:id
+PUT {{CampanhaServiceUrl}}/campanha/:id
 ```
 
 #### Corpo da Requisição (JSON)
@@ -117,5 +117,5 @@ PUT /:id
 ### Excluir
 
 ```http
-DELETE /:id
+DELETE {{CampanhaServiceUrl}}/campanha/:id
 ```
