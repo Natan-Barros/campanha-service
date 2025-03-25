@@ -71,6 +71,53 @@ test("Ao criar uma campanha Se a data final for inferior à data atual, a campan
     expect(campanha?.status).toBe('expirada')
 })
 
+
+test("Deve ser possivel deletar campanha", async () => {
+    const response = await request(app.server)
+    .post('/campanha')
+    .send({
+        "nome": "campanha teste",
+        "dataInicio": moment().subtract(10, 'days'). toDate(),
+        "dataFim": moment().subtract(1, 'days'). toDate(),
+        "categoria": "Liberdade"
+    });
+
+    const id = response.body["id"];
+    await request(app.server)
+    .del(`/campanha/${id}`).expect(200);
+
+    const responseGet  = await request(app.server)
+    .get('/campanha');
+    const campanhas : Campanha[] = responseGet.body;
+    const campanha = campanhas.find(c => c.id == id);
+
+    expect(campanha).toBeUndefined()
+})
+
+test("Deve ser possivel modificar campanha", async () => {
+    const response = await request(app.server)
+    .post('/campanha')
+    .send({
+        "nome": "campanha teste",
+        "dataInicio": moment().subtract(10, 'days'). toDate(),
+        "dataFim": moment().subtract(1, 'days'). toDate(),
+        "categoria": "Liberdade"
+    });
+
+    const status = "pausada";
+    const id = response.body["id"];
+    await request(app.server)
+    .put(`/campanha/${id}`).send({status})
+    .expect(200);
+
+    const responseGet  = await request(app.server)
+    .get('/campanha');
+    const campanhas : Campanha[] = responseGet.body;
+    const campanha = campanhas.find(c => c.id == id);
+
+    expect(campanha?.status).toBe(status);
+})
+
 afterAll(async () => {
     await app.close()
 })
