@@ -1,0 +1,37 @@
+{
+  "name": "campanha-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx src/server.ts watch",
+    "knex:migrate:make": "knex --knexfile src/infra/knexfile.ts migrate:make -x ts",
+    "knex:migrate:latest": "knex --knexfile src/infra/knexfile.ts migrate:latest",
+    "knex:migrate:rollback": "knex --knexfile src/infra/knexfile.ts migrate:rollback",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@types/node": "^22.13.11",
+    "@types/supertest": "^6.0.3",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
+    "prisma": "^6.5.0",
+    "supertest": "^7.1.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.27.0",
+    "vitest": "^3.0.9"
+  },
+  "dependencies": {
+    "fastify": "^5.2.1",
+    "knex": "^3.1.0",
+    "moment": "^2.30.1",
+    "pg": "^8.14.1",
+    "ts-node": "^10.9.2",
+    "zod": "^3.24.2"
+  }
+}
