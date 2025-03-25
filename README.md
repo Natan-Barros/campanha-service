@@ -70,7 +70,7 @@ Para executar os testes automatizados:
 npm run test
 ```
 
-Isso irá rodar os testes unitários e de integração usando **Vitest** e **Supertest**.
+Isso irá rodar os testes unitários e de integração usando **Vitest** e **Supertest** Com os requisitos principais apontados pelo desafio. 
 
 ---
 
