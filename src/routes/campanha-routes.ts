@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { z } from 'zod';
-import { Campanha } from '../infra/domain/entities/campanha';
+import { Campanha } from '../domain/entities/campanha';
 import { CampanhaRepository } from '../infra/repositories/campanha-repository';
 
 export async function campanhaRoutes(app: FastifyInstance) {

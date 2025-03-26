@@ -1,5 +1,5 @@
 import db from "../database";
-import { Campanha } from "../domain/entities/campanha";
+import { Campanha } from "../../domain/entities/campanha";
 
 export class CampanhaRepository {
     async create(campanha: Campanha): Promise<void> {
